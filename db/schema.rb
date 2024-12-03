@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_03_084716) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_03_090351) do
+  create_table "stocks", force: :cascade do |t|
+    t.string "symbol", null: false
+    t.string "company_name", null: false
+    t.decimal "current_price"
+    t.string "market"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["symbol"], name: "index_stocks_on_symbol", unique: true
+  end
+
   create_table "wallets", force: :cascade do |t|
     t.decimal "balance"
     t.string "walletable_type", null: false
