@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_03_091524) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_03_103632) do
   create_table "stocks", force: :cascade do |t|
     t.string "symbol", null: false
     t.string "company_name", null: false
@@ -19,6 +19,24 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_03_091524) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["symbol"], name: "index_stocks_on_symbol", unique: true
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "source_wallet_id"
+    t.integer "target_wallet_id"
+    t.decimal "amount", precision: 15, scale: 2, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "type"
+    t.index ["source_wallet_id"], name: "index_transactions_on_source_wallet_id"
+    t.index ["target_wallet_id"], name: "index_transactions_on_target_wallet_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -31,11 +49,13 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_03_091524) do
   end
 
   create_table "wallets", force: :cascade do |t|
-    t.decimal "balance"
     t.string "walletable_type", null: false
     t.integer "walletable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["walletable_type", "walletable_id"], name: "index_wallets_on_walletable"
   end
+
+  add_foreign_key "transactions", "wallets", column: "source_wallet_id"
+  add_foreign_key "transactions", "wallets", column: "target_wallet_id"
 end
