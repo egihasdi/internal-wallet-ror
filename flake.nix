@@ -30,7 +30,7 @@
             inherit inputs pkgs;
             modules = [{
               # https://devenv.sh/reference/options/
-              packages = with pkgs; [ sqlite ];
+              packages = with pkgs; [ sqlite libyaml ];
               languages.ruby = {
                 enable = true;
                 version = "3.2.3";

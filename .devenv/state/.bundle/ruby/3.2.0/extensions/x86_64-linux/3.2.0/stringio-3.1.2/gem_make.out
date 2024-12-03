@@ -1,0 +1,18 @@
+current directory: /home/work/lab/internal-wallet-ror/.devenv/state/.bundle/ruby/3.2.0/gems/stringio-3.1.2/ext/stringio
+/nix/store/14g9akm3jcpx75i4lac8zi84v0ik5g2g-ruby-3.2.3/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/work/lab/internal-wallet-ror/.devenv/state/.bundle/ruby/3.2.0/gems/stringio-3.1.2/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20241203-51991-6w3rn9 sitelibdir\=./.gem.20241203-51991-6w3rn9 clean
+
+current directory: /home/work/lab/internal-wallet-ror/.devenv/state/.bundle/ruby/3.2.0/gems/stringio-3.1.2/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20241203-51991-6w3rn9 sitelibdir\=./.gem.20241203-51991-6w3rn9
+compiling stringio.c
+linking shared-object stringio.so
+
+current directory: /home/work/lab/internal-wallet-ror/.devenv/state/.bundle/ruby/3.2.0/gems/stringio-3.1.2/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20241203-51991-6w3rn9 sitelibdir\=./.gem.20241203-51991-6w3rn9 install
+install -c -p -m 755 stringio.so ./.gem.20241203-51991-6w3rn9
+
+current directory: /home/work/lab/internal-wallet-ror/.devenv/state/.bundle/ruby/3.2.0/gems/stringio-3.1.2/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20241203-51991-6w3rn9 sitelibdir\=./.gem.20241203-51991-6w3rn9 clean
