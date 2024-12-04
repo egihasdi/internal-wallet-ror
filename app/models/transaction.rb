@@ -1,6 +1,4 @@
 class Transaction < ApplicationRecord
-  self.abstract_class = true
-
   belongs_to :source_wallet, class_name: "Wallet", polymorphic: true, optional: true
   belongs_to :target_wallet, class_name: "Wallet", polymorphic: true, optional: true
 
@@ -13,7 +11,7 @@ class Transaction < ApplicationRecord
   private
 
   def sufficient_balance
-    if source_wallet.balance < amount
+    if !source_wallet.nil? && source_wallet.balance < amount
       errors.add(:amount, "Insufficient balance in source wallet")
     end
   end
