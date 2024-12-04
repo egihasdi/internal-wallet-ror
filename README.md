@@ -81,7 +81,7 @@ puts user_wallet.balance
 ```
 #### Withdrawing Funds (DebitTransaction)
 Use DebitTransaction to withdraw funds from a wallet:
-```
+```ruby
 # Withdraw 50 from User's wallet
 debit_transaction = DebitTransaction.new(source_wallet: user_wallet, amount: 50.00)
 debit_transaction.apply
@@ -91,7 +91,7 @@ puts user_wallet.balance
 ```
 #### Transferring Funds (TransferTransaction)
 Use `TransferTransaction` to transfer funds between two wallets:
-```
+```ruby
 # Transfer 30 from User's wallet to Team's wallet
 transfer_transaction = TransferTransaction.create!(source_wallet: user_wallet, target_wallet: team_wallet, amount: 30.00)
 
