@@ -121,6 +121,7 @@ team_wallet.balance
 
 ### **stocks**
 | Field         | Type       |
+| ---- | ---- |
 | symbol        | string     |
 | company_name  | string     |
 | current_price | decimal    |
@@ -130,6 +131,7 @@ team_wallet.balance
 
 ### **teams**
 | Field      | Type      |
+| ---- | ---- |
 | name      | string      |
 | description | string |
 | created_at | datetime |
