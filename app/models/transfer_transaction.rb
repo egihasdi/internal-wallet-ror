@@ -1,6 +1,5 @@
 # Transfer moves funds from the source_wallet to the target_wallet
 class TransferTransaction < Transaction
-  validate :sufficient_balance
 
   def apply
     unless source_wallet && target_wallet
@@ -13,9 +12,4 @@ class TransferTransaction < Transaction
     end
   end
 
-  def sufficient_balance
-    if source_wallet.balance < amount
-      errors.add(:amount, "Insufficient balance in source wallet")
-    end
-  end
 end
