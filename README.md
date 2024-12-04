@@ -1,10 +1,10 @@
 # README
 
-# **Ruby Wallet System**
+# **Ruby Internal Wallet Transaction System (API)**
 
 ## **Overview**
 
-The Ruby Wallet System is an internal transactional system built with Ruby on Rails, designed to manage financial operations for entities like users, teams, and stocks. Each entity has its own wallet, supporting secure and efficient transactions such as transfers, deposits, and withdrawals, all while adhering to database integrity and validation rules.
+The Ruby Internal Wallet Transaction System (API) is an internal transactional system built with Ruby on Rails, designed to manage financial operations for entities like users, teams, and stocks. Each entity has its own wallet, supporting secure and efficient transactions such as transfers, deposits, and withdrawals, all while adhering to database integrity and validation rules.
 
 ---
 
