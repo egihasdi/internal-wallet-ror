@@ -87,34 +87,53 @@ team_wallet.balance
 
 ## **Database Schema**
 
-### **Users**
+### **users**
 | Field      | Type    |
 |------------|---------|
 | id         | integer |
 | name       | string  |
 | email      | string  |
+| password_digest | string |
 | created_at | datetime |
 | updated_at | datetime |
 
-### **Wallets**
+### **wallets**
 | Field          | Type       |
 |----------------|------------|
 | id             | integer    |
 | walletable_id  | integer    |
 | walletable_type| string     |
-| balance        | decimal    |
 | created_at     | datetime   |
 | updated_at     | datetime   |
 
-### **Transactions**
+### **transactions**
 | Field            | Type       |
 |------------------|------------|
 | id               | integer    |
 | source_wallet_id | integer    |
 | target_wallet_id | integer    |
 | amount           | decimal    |
+| type             | string     |
+| source_wallet_type | string |
+| target_wallet_type | string |
 | created_at       | datetime   |
 | updated_at       | datetime   |
+
+### **stocks**
+| Field         | Type       |
+| symbol        | string     |
+| company_name  | string     |
+| current_price | decimal    |
+| market        | string     |
+| created_at | datetime |
+| updated_at | datetime |
+
+### **teams**
+| Field      | Type      |
+| name      | string      |
+| description | string |
+| created_at | datetime |
+| updated_at | datetime |
 
 ---
 
