@@ -69,18 +69,35 @@ team_wallet = team.create_wallet
 ```
 
 ### **Performing Transactions**
+#### **Depositing Funds (CreditTransaction)**
+Use CreditTransaction to deposit money into a wallet:
 ```ruby
-# Deposit money into User's wallet
-Transaction.create!(target_wallet: user_wallet, amount: 100.00)
+# Deposit 100 into User's wallet
+credit_transaction = CreditTransaction.new(target_wallet: user_wallet, amount: 100.00)
+credit_transaction.apply
 
-# Transfer money from User to Team
-Transaction.create!(source_wallet: user_wallet, target_wallet: team_wallet, amount: 50.00)
+# Check the balance of User's wallet after deposit
+puts user_wallet.balance
 ```
+#### Withdrawing Funds (DebitTransaction)
+Use DebitTransaction to withdraw funds from a wallet:
+```
+# Withdraw 50 from User's wallet
+debit_transaction = DebitTransaction.new(source_wallet: user_wallet, amount: 50.00)
+debit_transaction.apply
 
-### **Checking Wallet Balance**
-```ruby
-user_wallet.balance # Returns the calculated or stored balance
-team_wallet.balance
+# Check the balance of User's wallet after withdrawal
+puts user_wallet.balance
+```
+#### Transferring Funds (TransferTransaction)
+Use `TransferTransaction` to transfer funds between two wallets:
+```
+# Transfer 30 from User's wallet to Team's wallet
+transfer_transaction = TransferTransaction.create!(source_wallet: user_wallet, target_wallet: team_wallet, amount: 30.00)
+
+# Check the balance of both wallets after transfer
+puts user_wallet.balance
+puts team_wallet.balance
 ```
 
 ---
