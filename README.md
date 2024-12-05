@@ -180,7 +180,7 @@ puts team_wallet.balance
 
 #### **Get Wallet Balance**
 - **Endpoint:** `GET /wallets/balance`
-- **Description:** Fetches the balance of a specific wallet.
+- **Description:** Fetches the balance from current logged-in user.
 - **Headers:**
   ```json
   {
@@ -196,7 +196,7 @@ puts team_wallet.balance
 
 #### **Deposit Funds**
 - **Endpoint:** `POST /wallets/deposit`
-- **Description:** Deposits funds into a specific wallet.
+- **Description:** Deposits funds from current logged-in user.
 - **Headers:**
   ```json
   {
@@ -213,6 +213,53 @@ puts team_wallet.balance
   {
     "message": "Deposit successful",
     "balance": "480.0"
+  }
+  ```
+
+#### **Withdraw Funds**
+- **Endpoint:** `POST /wallets/withdraw`
+- **Description:** Withdraws funds from current logged-in user.
+- **Headers:**
+  ```json
+  {
+     "Authorization": "Bearer your.jwt.token"
+  }
+  ```
+- **Request:**
+  ```json
+  {
+    "amount": 100.00
+  }
+  ```
+- **Response:**
+  ```json
+  {
+       "message": "Withdrawal successful",
+       "balance": "430.0"
+  }
+  ```
+
+#### **Transfer Funds**
+- **Endpoint:** `POST /wallets/transfer`
+- **Description:** Transfers funds from current logged-in user to another wallet.
+- **Headers:**
+  ```json
+  {
+     "Authorization": "Bearer your.jwt.token"
+  }
+  ```
+- **Request:**
+  ```json
+  {
+    "target_wallet_id": 2,
+    "amount": 50.00
+  }
+  ```
+- **Response:**
+  ```json
+  {
+       "message": "Transfer successful",
+       "balance": "400.0"
   }
   ```
   
