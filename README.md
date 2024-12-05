@@ -157,6 +157,143 @@ puts team_wallet.balance
 
 ---
 
+## **API Endpoints**
+
+### **Authentication**
+
+#### **Generate Token**
+- **Endpoint:** `POST /auth/token`
+- **Description:** Generates a JWT token for authentication.
+- **Request:**
+  ```json
+  {
+    "email": "user@example.com",
+    "password": "password123"
+  }
+- **Response:**
+  ```json
+  {
+     "token": "your.jwt.token"
+  }
+  ```
+### **Wallet Endpoints**
+
+#### **Get Wallet Balance**
+- **Endpoint:** `GET /wallets/balance`
+- **Description:** Fetches the balance from current logged-in user.
+- **Headers:**
+  ```json
+  {
+     "Authorization": "Bearer your.jwt.token"
+  }
+  ```
+- **Response:**
+  ```json
+  {
+     "balance": 150.00
+  }
+  ```
+
+#### **Deposit Funds**
+- **Endpoint:** `POST /wallets/deposit`
+- **Description:** Deposits funds from current logged-in user.
+- **Headers:**
+  ```json
+  {
+     "Authorization": "Bearer your.jwt.token"
+  }
+  ```
+- **Request:**
+  ```json
+  {
+    "amount": 100.00
+  }
+- **Response:**
+  ```json
+  {
+    "message": "Deposit successful",
+    "balance": "480.0"
+  }
+  ```
+- **Errors:**
+  ```json
+  {
+    "error": "Amount must be greater than zero"
+  }
+  ```
+
+#### **Withdraw Funds**
+- **Endpoint:** `POST /wallets/withdraw`
+- **Description:** Withdraws funds from current logged-in user.
+- **Headers:**
+  ```json
+  {
+     "Authorization": "Bearer your.jwt.token"
+  }
+  ```
+- **Request:**
+  ```json
+  {
+    "amount": 100.00
+  }
+  ```
+- **Response:**
+  ```json
+  {
+       "message": "Withdrawal successful",
+       "balance": "430.0"
+  }
+  ```
+- **Errors:**
+  ```json
+  {
+    "error": "Insufficient balance in source wallet"
+  }
+  ```
+  ```json
+  {
+    "error": "Amount must be greater than zero"
+  }
+  ```
+  
+
+#### **Transfer Funds**
+- **Endpoint:** `POST /wallets/transfer`
+- **Description:** Transfers funds from current logged-in user to another wallet.
+- **Headers:**
+  ```json
+  {
+     "Authorization": "Bearer your.jwt.token"
+  }
+  ```
+- **Request:**
+  ```json
+  {
+    "target_wallet_id": 2,
+    "amount": 50.00
+  }
+  ```
+- **Response:**
+  ```json
+  {
+       "message": "Transfer successful",
+       "balance": "400.0"
+  }
+  ```
+- **Errors:**
+  ```json
+  {
+    "error": "Insufficient balance in source wallet"
+  }
+  ```
+  ```json
+  {
+    "error": "Amount must be greater than zero"
+  }
+  ```
+  
+---
+
 ## **LatestStockPrice Library**
 ### **Overview**
 
@@ -171,6 +308,36 @@ The `LatestStockPrice` library is a Ruby module for fetching the latest stock pr
 - Get the prices of all available stocks.
 - Simple and intuitive API methods.
 - Built-in HTTP request handling and JSON response parsing.
+
+### **Usage**
+#### **Client Initialization**
+Initializing the Client requires `rapidapi-key` 
+```ruby
+require_relative 'lib/latest_stock_price'
+
+client = LatestStockPrice::Client.new(api_key: "RAPID_API_APIKEY")
+```
+
+#### **Fetching a Single Stock Price
+To fetch the price of a specific stock by its symbol:
+```ruby
+price = client.price('AAPL') # Replace 'AAPL' with the stock symbol
+puts "The price of AAPL is $#{price}"
+```
+
+### **Fetching Multiple Stock Prices
+To fetch the prices of multiple stocks at once:
+```ruby
+prices = client.prices(['AAPL', 'GOOGL', 'MSFT'])
+puts prices # Returns a hash with stock symbols and their prices
+```
+
+#### **Fetching All Stock Prices
+To retrieve the prices of all available stocks:
+```ruby
+all_prices = client.price_all
+puts all_prices # Returns a hash with all stock symbols and their prices
+```
 
 ---
 
