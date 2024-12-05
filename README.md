@@ -157,6 +157,22 @@ puts team_wallet.balance
 
 ---
 
+## **API Endpoints**
+
+### **Authentication**
+
+#### **Generate Token**
+- **Endpoint:** `POST /auth/token`
+- **Description:** Generates a JWT token for authentication.
+- **Request:**
+  ```json
+  {
+    "email": "user@example.com",
+    "password": "password123"
+  }
+  
+---
+
 ## **LatestStockPrice Library**
 ### **Overview**
 
