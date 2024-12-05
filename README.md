@@ -176,6 +176,23 @@ puts team_wallet.balance
      "token": "your.jwt.token"
   }
   ```
+
+#### **Get Wallet Balance**
+- **Endpoint:** `GET /wallets/balance`
+- **Description:** Fetches the balance of a specific wallet.
+- **Headers:**
+  ```json
+  {
+     "Authorization": "Bearer your.jwt.token"
+  }
+  ```
+- **Response:**
+  ```json
+  {
+     "wallet_id": 1,
+     "balance": 150.00
+  }
+  ```
   
 ---
 
