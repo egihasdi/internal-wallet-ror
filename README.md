@@ -172,6 +172,36 @@ The `LatestStockPrice` library is a Ruby module for fetching the latest stock pr
 - Simple and intuitive API methods.
 - Built-in HTTP request handling and JSON response parsing.
 
+### **Usage**
+#### **Client Initialization**
+Initializing the Client requires `rapidapi-key` 
+```ruby
+require_relative 'lib/latest_stock_price'
+
+client = LatestStockPrice::Client.new(api_key: "RAPID_API_APIKEY")
+```
+
+#### **Fetching a Single Stock Price
+To fetch the price of a specific stock by its symbol:
+```ruby
+price = client.price('AAPL') # Replace 'AAPL' with the stock symbol
+puts "The price of AAPL is $#{price}"
+```
+
+### **Fetching Multiple Stock Prices
+To fetch the prices of multiple stocks at once:
+```ruby
+prices = client.prices(['AAPL', 'GOOGL', 'MSFT'])
+puts prices # Returns a hash with stock symbols and their prices
+```
+
+#### **Fetching All Stock Prices
+To retrieve the prices of all available stocks:
+```ruby
+all_prices = client.price_all
+puts all_prices # Returns a hash with all stock symbols and their prices
+```
+
 ---
 
 ## **Testing**
