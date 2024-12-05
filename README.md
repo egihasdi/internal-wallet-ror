@@ -215,6 +215,12 @@ puts team_wallet.balance
     "balance": "480.0"
   }
   ```
+- **Errors:**
+  ```json
+  {
+    "error": "Amount must be greater than zero"
+  }
+  ```
 
 #### **Withdraw Funds**
 - **Endpoint:** `POST /wallets/withdraw`
@@ -238,6 +244,18 @@ puts team_wallet.balance
        "balance": "430.0"
   }
   ```
+- **Errors:**
+  ```json
+  {
+    "error": "Insufficient balance in source wallet"
+  }
+  ```
+  ```json
+  {
+    "error": "Amount must be greater than zero"
+  }
+  ```
+  
 
 #### **Transfer Funds**
 - **Endpoint:** `POST /wallets/transfer`
@@ -260,6 +278,17 @@ puts team_wallet.balance
   {
        "message": "Transfer successful",
        "balance": "400.0"
+  }
+  ```
+- **Errors:**
+  ```json
+  {
+    "error": "Insufficient balance in source wallet"
+  }
+  ```
+  ```json
+  {
+    "error": "Amount must be greater than zero"
   }
   ```
   
