@@ -170,6 +170,12 @@ puts team_wallet.balance
     "email": "user@example.com",
     "password": "password123"
   }
+- **Response:**
+  ```json
+  {
+     "token": "your.jwt.token"
+  }
+  ```
   
 ---
 
