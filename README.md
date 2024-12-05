@@ -176,6 +176,7 @@ puts team_wallet.balance
      "token": "your.jwt.token"
   }
   ```
+### **Wallet Endpoints**
 
 #### **Get Wallet Balance**
 - **Endpoint:** `GET /wallets/balance`
@@ -189,8 +190,29 @@ puts team_wallet.balance
 - **Response:**
   ```json
   {
-     "wallet_id": 1,
      "balance": 150.00
+  }
+  ```
+
+#### **Deposit Funds**
+- **Endpoint:** `POST /wallets/deposit`
+- **Description:** Deposits funds into a specific wallet.
+- **Headers:**
+  ```json
+  {
+     "Authorization": "Bearer your.jwt.token"
+  }
+  ```
+- **Request:**
+  ```json
+  {
+    "amount": 100.00
+  }
+- **Response:**
+  ```json
+  {
+    "message": "Deposit successful",
+    "balance": "480.0"
   }
   ```
   
