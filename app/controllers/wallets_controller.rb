@@ -10,15 +10,16 @@ class WalletsController < ApplicationController
       return
     end
 
-    transaction = CreditTransaction.new(
-      target_wallet: @wallet,
-      amount: amount
-    )
+    begin
+      transaction = CreditTransaction.new(
+        target_wallet: @wallet,
+        amount: amount
+      )
 
-    if transaction.apply
+      transaction.apply
       render(json: {message: "Deposit successful", balance: @wallet.balance}, status: :ok)
-    else
-      render(json: {error: transaction.errors.full_messages}, status: :unprocessable_entity)
+    rescue => e
+      render(json: {error: e.message}, status: :unprocessable_entity)
     end
   end
 
@@ -30,15 +31,16 @@ class WalletsController < ApplicationController
       return
     end
 
-    transaction = DebitTransaction.new(
-      source_wallet: @wallet,
-      amount: amount
-    )
+    begin
+      transaction = DebitTransaction.new(
+        source_wallet: @wallet,
+        amount: amount
+      )
 
-    if transaction.apply
+      transaction.apply
       render(json: {message: "Withdrawal successful", balance: @wallet.balance}, status: :ok)
-    else
-      render(json: {error: transaction.errors.full_messages}, status: :unprocessable_entity)
+    rescue => e
+      render(json: {error: e.message}, status: :unprocessable_entity)
     end
   end
 
@@ -57,16 +59,18 @@ class WalletsController < ApplicationController
       return
     end
 
-    transaction = TransferTransaction.new(
-      source_wallet: @wallet,
-      target_wallet: target_wallet,
-      amount: amount
-    )
+    begin
+      transaction = TransferTransaction.new(
+        source_wallet: @wallet,
+        target_wallet: target_wallet,
+        amount: amount
+      )
 
-    if transaction.apply
+      transaction.apply
+
       render(json: {message: "Transfer successful", balance: @wallet.balance}, status: :ok)
-    else
-      render(json: {error: transaction.errors.full_messages}, status: :unprocessable_entity)
+    rescue => e
+      render(json: {error: e.message}, status: :unprocessable_entity)
     end
   end
 

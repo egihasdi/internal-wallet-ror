@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get("up" => "rails/health#show", :as => :rails_health_check)
 
-  post("/auth", to: "auth#token")
+  post("/auth/token", to: "auth#token")
 
   post("/wallets/deposit", to: "wallets#deposit")
   post("/wallets/withdraw", to: "wallets#withdraw")
