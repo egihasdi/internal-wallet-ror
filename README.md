@@ -157,6 +157,23 @@ puts team_wallet.balance
 
 ---
 
+## **LatestStockPrice Library**
+### **Overview**
+
+The `LatestStockPrice` library is a Ruby module for fetching the latest stock prices. It provides methods to retrieve the price of a single stock, multiple stocks, or all available stock prices. This library is built in a reusable and modular "gem style" for easy integration into Ruby applications.
+
+---
+
+### **Features**
+
+- Fetch the current price of a specific stock by symbol.
+- Retrieve the prices of multiple stocks at once.
+- Get the prices of all available stocks.
+- Simple and intuitive API methods.
+- Built-in HTTP request handling and JSON response parsing.
+
+---
+
 ## **Testing**
 
 Run the test suite:
